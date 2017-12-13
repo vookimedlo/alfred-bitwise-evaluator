@@ -24,6 +24,13 @@ This could be overridden, either by pressing the <kbd>⌘</kbd> key, or <kbd>⌥
 - The second one - <key>⌥</key> - instructs workflow to copy result in hexadecimal form to clipboard.
 - The last one - <key>⌃</key> - instructs workflow to copy result in octal form to clipboard.
 
+## Bitwise expression syntax and operators precedence
+Workflow is based on Perl, therefore it uses its syntax and operators precedence, which is easy to use.
+The golden rule in programming languages is following: _"If you are unsure about the operator precedence, always use parentheses to be sure what you are doing."_. It's not a shame!.
+
+
+
+
 
 [1]: https://www.alfredapp.com/
 [2]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
