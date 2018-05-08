@@ -26,7 +26,8 @@ This could be overridden, either by pressing the <kbd>⌘</kbd> key, or <kbd>⌥
 
 ## Bitwise expression syntax and operators precedence
 Workflow is based on Perl, therefore it uses its syntax and operators precedence, which is easy to use.
-The golden rule in programming languages is following: _"If you are unsure about the operator precedence, always use parentheses to be sure what you are doing."_. It's not a shame!.
+The golden rule in programming languages is following: _"If you are unsure about the operator precedence, always use parentheses to be sure what you are doing."_. It's not a shame!
+
 
 | OPERATOR NAME       | SYNTAX |
 |---------------------|:------:|
@@ -49,7 +50,7 @@ Four formats listed below are supported.
 
 
 ## Note
-Before the expression is evaluated, input data will be checked for illegal characters. If those are find, evaluation will not continue. This is done for making the workflow harmless. If you remove this check, you could evaluate any Perl code, which could be pretty dangerous. Do that only if you know what you are doing!!!
+Before the expression is evaluated, input data will be checked for illegal characters. If those are found, evaluation will not continue. This is done for making the workflow harmless. If you remove this check, you could evaluate any Perl code, which could be pretty dangerous. Do that only if you know what you are doing!!!
 
 [1]: https://www.alfredapp.com/
 [2]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
