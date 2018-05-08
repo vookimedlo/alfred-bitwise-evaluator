@@ -400,7 +400,7 @@ fi</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>2017.12.13</string>
+	<string>2018.05.08</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-bitwise-evaluator</string>
 </dict>
