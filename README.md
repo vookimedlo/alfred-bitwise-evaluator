@@ -1,8 +1,16 @@
-# alfred-bitwise-evaluator
+# alfred-bitwise-evaluator modified to show all results immediately
 [Alfred 3][1] workflow for evaluating bitwise expressions.
 
+This code has been modified from [vookimedle][2], and now results in the workflow computing the same things, but displaying them all at once in Alfreds different items. All the different values can still be copied directly to the clipboard.
+
+An image preview of what it looks like now can be seen below:
+![bitwise show all](doc/images/alfred-bw-show-all.png?raw=true "")
+
+Likewise, the error message when writing an expression that can't be evaluated is shown as follows:
+![bitwise show all error](doc/images/alfred-bw-show-all-error.png?raw=true "")
+
 ## Installation
-1) Install [alfred-bitwise-evaluator][2] workflow.
+1) Install [alfred-bitwise-evaluator][3] workflow.
 2) All further updates are handled automatically.
 
 ## Usage
@@ -17,7 +25,7 @@ Expression is being evaluated as you type the expression. If expression cannot b
 
 ![Alfred bitwise incorrect evaluation screenshot](doc/images/alfred-bitwise-evaluated-error.png?raw=true "")
 
-By default, the result is shown in decimal and binary form. By pressing <kbd>enter</kbd> key, the results will be copied to clipboard in decimal form. 
+By default, the result is shown in decimal and binary form. By pressing <kbd>enter</kbd> key, the results will be copied to clipboard in decimal form.
 This could be overridden, either by pressing the <kbd>⌘</kbd> key, or <kbd>⌥</kbd> key, or <kbd>⌃</kbd> key.
 
 - The first one - <key>⌘</key> - instructs workflow to copy result in binary form to clipboard.
@@ -53,4 +61,5 @@ Four formats listed below are supported.
 Before the expression is evaluated, input data will be checked for illegal characters. If those are found, evaluation will not continue. This is done for making the workflow harmless. If you remove this check, you could evaluate any Perl code, which could be pretty dangerous. Do that only if you know what you are doing!!!
 
 [1]: https://www.alfredapp.com/
-[2]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
+[2]: https://github.com/vookimedlo/alfred-bitwise-evaluator
+[3]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
