@@ -1,23 +1,26 @@
-# alfred-bitwise-evaluator modified to show all results immediately
+# alfred-bitwise-evaluator
 [Alfred 3][1] workflow for evaluating bitwise expressions.
 
-This code has been modified from [vookimedle][2], and now results in the workflow computing the same things, but displaying them all at once in Alfreds different items. All the different values can still be copied directly to the clipboard.
-
-An image preview of what it looks like now can be seen below:
-![bitwise show all](doc/images/alfred-bw-show-all.png?raw=true "")
-
-Likewise, the error message when writing an expression that can't be evaluated is shown as follows:
-![bitwise show all error](doc/images/alfred-bw-show-all-error.png?raw=true "")
+This code has been modified from [vookimedle][2], and now results in the workflow computing the same things, but displaying them all at once in four different Alfred items. All the different values can be copied directly to the clipboard.
 
 ## Installation
 1) Install [alfred-bitwise-evaluator][3] workflow.
+2) All further updates are handled automatically.
 
 ## Usage
-In Alfred, type `bw` and enter your bitwise expression which shall be evaluated. Action the relevant item to copy it to your clipboard.
+In Alfred, type `bw` and enter your bitwise expression which shall be evaluated.
+![bitwise evaluate](doc/images/bw-enter-expression.png?raw=true "")
+
+Action the relevant item with the command key and corresponding number to copy it to your clipboard:
+![bitwise show all](doc/images/bw-valid-expression.png?raw=true "")
+
+Expression is being evaluated as you type the expression. If expression cannot be evaluated, either for illegal characters or syntax error, user will be notified about that.
+![bitwise show all error](doc/images/bw-invalid-expression.png?raw=true "")
+
 
 ## Bitwise expression syntax and operators precedence
 Workflow is based on Perl, therefore it uses its syntax and operators precedence, which is easy to use.
-The golden rule in programming languages is following: _"If you are unsure about the operator precedence, always use parentheses to be sure what you are doing."_. It's not a shame!
+The golden rule in programming languages is the following: _"If you are unsure about the operator precedence, always use parentheses to be sure what you are doing."_. It's not a shame!
 
 
 | OPERATOR NAME       | SYNTAX |
@@ -30,14 +33,14 @@ The golden rule in programming languages is following: _"If you are unsure about
 | Bitwise right shift | a >> b |
 
 ## Integer formats
-Four formats listed below are supported.
+The four formats listed below are printed.
 
 | INTEGER FORMAT | SYNTAX EXAMPLE |
 |----------------|:--------------:|
-| decimal        |      1234      |
-| binary         |    0b1110011   |
-| octal          |      01234     |
-| hexadecimal    |     0x1234     |
+| Decimal        |      1234      |
+| Binary         |    0b1110011   |
+| Hexadecimal    |     0x1234     |
+| Octal          |      01234     |
 
 
 ## Note
@@ -45,4 +48,4 @@ Before the expression is evaluated, input data will be checked for illegal chara
 
 [1]: https://www.alfredapp.com/
 [2]: https://github.com/vookimedlo/alfred-bitwise-evaluator
-[3]: https://github.com/shmulvad/alfred-bitwise-evaluator/raw/master/BitwiseEvaluatorShowImmediatelyCopy.alfredworkflow
+[3]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest

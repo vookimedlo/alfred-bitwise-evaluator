@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>cz.vookimedlo.alfred.bitwise</string>
-	<key>category</key>
-	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>2C30BD78-945A-45E4-BABD-E9CC6E1205B1</key>
@@ -45,18 +43,7 @@
 			</dict>
 		</array>
 		<key>BA6E1D05-03FA-4956-A72B-033FF191A3F2</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>28EBC150-CB44-4260-96C1-B6104F348B74</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>Michal Duda</string>
@@ -103,7 +90,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>bitwise</string>
+				<string>bw</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -144,46 +131,54 @@ else
 sub createItem
   {
     my ($title, $subtitle, $arg, $isNumberResult) = @_;
-    my $mods = "";
+    my $resultBinary = "Still cannot evaluate expression.", $title;
+    my $resultHex    = "Nope, not this one either.", $title;
+    my $resultOctal  = "You guessed it. This also doesn't work.", $title;
 
     if ($isNumberResult)
       {
-        my $resultHex    = "0x" . sprintf "%X", $title;
-        my $resultBinary = "0b" . sprintf "%b", $title;
-        my $resultOctal  = "0"  . sprintf "%o", $title;
-
-        $mods = &lt;&lt;"END_MODS";
-        "mods": {
-            "alt": {
-                "valid": true,
-                "arg": "$resultHex",
-                "subtitle": "Copy hexadecimal result to clipboard."
-            },
-            "cmd": {
-                "valid": true,
-                "arg": "$resultBinary",
-                "subtitle": "Copy binary result to clipboard."
-            },
-            "ctrl": {
-                "valid": true,
-                "arg": "$resultOctal",
-                "subtitle": "Copy octal result to clipboard."
-            },
-        }
-END_MODS
+        my ($title, $subtitle, $arg, $isNumberResult) = @_;
+        $resultBinary = "0b" . sprintf "%b", $title;
+	      $resultHex    = "0x" . sprintf "%X", $title;
+        $resultOctal  = "0"  . sprintf "%o", $title;
       }
-
     my $json = &lt;&lt;"END_JSON";
 {"items": [
     {
         "title": "$title",
-        "subtitle": "$subtitle",
+        "subtitle": "Decimal. Action item to copy",
         "arg": "$arg",
         "autocomplete": "$title",
         "icon": {
             "path": "icon.png"
         },
-        $mods
+    },
+    {
+        "title": "$resultBinary",
+        "subtitle": "Binary. Action item to copy",
+        "arg": "$resultBinary",
+        "autocomplete": "$resultBinary",
+        "icon": {
+            "path": "icon.png"
+        },
+    },
+    {
+        "title": "$resultHex",
+        "subtitle": "Hexadecimal. Action item to copy",
+        "arg": "$resultHex",
+        "autocomplete": "$title",
+        "icon": {
+            "path": "icon.png"
+        },
+    },
+    {
+        "title": "$resultOctal",
+        "subtitle": "Octal. Action item to copy",
+        "arg": "$resultOctal",
+        "autocomplete": "$title",
+        "icon": {
+            "path": "icon.png"
+        },
     }
 ]}
 END_JSON
@@ -194,7 +189,7 @@ END_JSON
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>result will be shown here in a decimal and binary form</string>
+				<string>Result will be shown in decimal, binary, hexadecimal and octal form</string>
 				<key>title</key>
 				<string>Enter expression</string>
 				<key>type</key>
