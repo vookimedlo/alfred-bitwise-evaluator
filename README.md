@@ -7,12 +7,15 @@
 
 ## Usage
 In Alfred, type `bitwise` and enter your bitwise expression which shall be evaluated.
+
 ![bitwise evaluate](doc/images/bw-enter-expression.png?raw=true "")
 
 Selected result is copied to your clipboard.
+
 ![bitwise show all](doc/images/bw-valid-expression.png?raw=true "")
 
 Expression is being evaluated as you type the expression. If expression cannot be evaluated, either for illegal characters or syntax error, user will be notified about that.
+
 ![bitwise show error](doc/images/bw-invalid-expression.png?raw=true "")
 
 
