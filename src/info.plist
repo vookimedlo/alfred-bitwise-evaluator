@@ -155,7 +155,7 @@ sub createErrorOutput
         "arg": "error",
         "autocomplete": "$title",
         "icon": {
-            "path": "icon.png"
+            "path": "icon-failure.png"
         },
     },
 ]}
