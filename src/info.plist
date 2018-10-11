@@ -427,7 +427,7 @@ fi</string>
 		<string>bitwise</string>
 	</dict>
 	<key>version</key>
-	<string>2018.XX.XX</string>
+	<string>2018.10.11</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-bitwise-evaluator</string>
 </dict>
