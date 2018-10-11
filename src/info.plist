@@ -43,7 +43,18 @@
 			</dict>
 		</array>
 		<key>BA6E1D05-03FA-4956-A72B-033FF191A3F2</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>28EBC150-CB44-4260-96C1-B6104F348B74</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Michal Duda</string>
@@ -102,9 +113,13 @@
 				<key>runningsubtext</key>
 				<string>Please wait, evaluation in progress...</string>
 				<key>script</key>
-				<string>use strict;
+				<string># https://github.com/vookimedlo/alfred-bitwise-evaluator
+# GPLv3
+#
 
-#sample bitwise (1|2)&lt;&lt;6&amp;~100^0b01
+##### sample bitwise (1|2)&lt;&lt;6&amp;~100^0b01
+
+use strict;
 
 my $query = '{query}';
 
@@ -114,48 +129,60 @@ if ($query=~m#^[\s0-9a-fA-F_&lt;|&gt;\~\-\+*/bx&amp;)(^]+$#)
 
     if ($@)
       {
-        print &amp;createItem("Cannot evaluate expression.", $query, "error")
+        print &amp;createErrorOutput("Cannot evaluate expression.", $query)
       }
     else
       {
-        print &amp;createItem($answer, ("0b" . sprintf "%b", $answer), $answer, "true");
+        print &amp;createResultOutput($answer, $query);
       }
   }
 else
   {
-    # Contains ilegal chars
+    # Contains illegal chars
     #
-    print &amp;createItem("Cannot evaluate expression.", $query, "error")
+    print &amp;createErrorOutput("Cannot evaluate expression.", $query)
   }
 
-sub createItem
+sub createErrorOutput
   {
-    my ($title, $subtitle, $arg, $isNumberResult) = @_;
-    my $resultBinary = "Still cannot evaluate expression.", $title;
-    my $resultHex    = "Nope, not this one either.", $title;
-    my $resultOctal  = "You guessed it. This also doesn't work.", $title;
+    my ($title, $subtitle) = @_;
 
-    if ($isNumberResult)
-      {
-        my ($title, $subtitle, $arg, $isNumberResult) = @_;
-        $resultBinary = "0b" . sprintf "%b", $title;
-	      $resultHex    = "0x" . sprintf "%X", $title;
-        $resultOctal  = "0"  . sprintf "%o", $title;
-      }
     my $json = &lt;&lt;"END_JSON";
 {"items": [
     {
         "title": "$title",
-        "subtitle": "Decimal. Action item to copy",
-        "arg": "$arg",
+        "subtitle": "$subtitle",
+        "arg": "error",
         "autocomplete": "$title",
+        "icon": {
+            "path": "icon.png"
+        },
+    },
+]}
+END_JSON
+  }
+
+  sub createResultOutput
+  {
+    my ($resultDecimal, $query) = @_;
+    my $resultBinary = "0b" . sprintf "%b", $resultDecimal;
+    my $resultHex    = "0x" . sprintf "%X", $resultDecimal;
+    my $resultOctal  = "0"  . sprintf "%o", $resultDecimal;
+
+    my $json = &lt;&lt;"END_JSON";
+{"items": [
+    {
+        "title": "$resultDecimal",
+        "subtitle": "Decimal",
+        "arg": "$resultDecimal",
+        "autocomplete": "$resultDecimal",
         "icon": {
             "path": "icon.png"
         },
     },
     {
         "title": "$resultBinary",
-        "subtitle": "Binary. Action item to copy",
+        "subtitle": "Binary",
         "arg": "$resultBinary",
         "autocomplete": "$resultBinary",
         "icon": {
@@ -164,18 +191,18 @@ sub createItem
     },
     {
         "title": "$resultHex",
-        "subtitle": "Hexadecimal. Action item to copy",
+        "subtitle": "Hexadecimal",
         "arg": "$resultHex",
-        "autocomplete": "$title",
+        "autocomplete": "$resultHex",
         "icon": {
             "path": "icon.png"
         },
     },
     {
         "title": "$resultOctal",
-        "subtitle": "Octal. Action item to copy",
+        "subtitle": "Octal",
         "arg": "$resultOctal",
-        "autocomplete": "$title",
+        "autocomplete": "$resultOctal",
         "icon": {
             "path": "icon.png"
         },
