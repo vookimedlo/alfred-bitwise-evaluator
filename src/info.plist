@@ -101,7 +101,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>bw</string>
+				<string>{var:keyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -173,7 +173,7 @@ END_JSON
 {"items": [
     {
         "title": "$resultDecimal",
-        "subtitle": "Decimal",
+        "subtitle": "decimal result",
         "arg": "$resultDecimal",
         "autocomplete": "$resultDecimal",
         "icon": {
@@ -182,7 +182,7 @@ END_JSON
     },
     {
         "title": "$resultBinary",
-        "subtitle": "Binary",
+        "subtitle": "binary result",
         "arg": "$resultBinary",
         "autocomplete": "$resultBinary",
         "icon": {
@@ -191,7 +191,7 @@ END_JSON
     },
     {
         "title": "$resultHex",
-        "subtitle": "Hexadecimal",
+        "subtitle": "hexadecimal result",
         "arg": "$resultHex",
         "autocomplete": "$resultHex",
         "icon": {
@@ -200,7 +200,7 @@ END_JSON
     },
     {
         "title": "$resultOctal",
-        "subtitle": "Octal",
+        "subtitle": "octal result",
         "arg": "$resultOctal",
         "autocomplete": "$resultOctal",
         "icon": {
@@ -421,8 +421,13 @@ fi</string>
 			<integer>250</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>keyword</key>
+		<string>bitwise</string>
+	</dict>
 	<key>version</key>
-	<string>2018.05.08</string>
+	<string>2018.XX.XX</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-bitwise-evaluator</string>
 </dict>
