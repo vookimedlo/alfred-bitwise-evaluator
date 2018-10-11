@@ -1,10 +1,8 @@
 # alfred-bitwise-evaluator
 [Alfred 3][1] workflow for evaluating bitwise expressions.
 
-This code has been modified from [vookimedle][2], and now results in the workflow computing the same things, but displaying them all at once in four different Alfred items. All the different values can be copied directly to the clipboard.
-
 ## Installation
-1) Install [alfred-bitwise-evaluator][3] workflow.
+1) Install [alfred-bitwise-evaluator][2] workflow.
 2) All further updates are handled automatically.
 
 ## Usage
@@ -47,5 +45,4 @@ The four formats listed below are printed.
 Before the expression is evaluated, input data will be checked for illegal characters. If those are found, evaluation will not continue. This is done for making the workflow harmless. If you remove this check, you could evaluate any Perl code, which could be pretty dangerous. Do that only if you know what you are doing!!!
 
 [1]: https://www.alfredapp.com/
-[2]: https://github.com/vookimedlo/alfred-bitwise-evaluator
-[3]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
+[2]: https://github.com/vookimedlo/alfred-bitwise-evaluator/releases/latest
